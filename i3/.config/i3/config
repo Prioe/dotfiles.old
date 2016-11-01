@@ -1,0 +1,160 @@
+##
+## Variables
+##
+## Mod-keys ##
+set $alt Mod1
+
+font pango:icomoon, PowerlineExtraSymbols, FontAwesome, Iosevka Term Medium, Roboto Light 9
+
+##
+##Autostart
+##
+
+
+exec feh --bg-scale $HOME/wallpapers/arial.png
+exec compton --config $HOME/.config/compton/config -b
+# exec sh $HOME/.config/lemonbar/lonebar
+# exec conky -c $HOME/.config/conky/lemonbar.conf -d
+# exec sh $HOME/.config/lemonbar/bbbar
+# exec sh $HOME/.config/lemonbar/time
+# exec sh $HOME/.config/lemonbar/ip
+# exec sh $HOME/.config/lemonbar/memory
+# exec sh $HOME/.config/lemonbar/disk
+# exec sh $HOME/.config/lemonbar/battery
+# exec sh $HOME/.config/lemonbar/uptime
+# exec sh $HOME/.config/lemonbar/music
+# exec sh $HOME/.config/lemonbar/launchers
+
+
+##
+##Looks
+##
+
+#gaps
+gaps inner 13
+gaps outer 0
+
+#border
+new_window pixel 3
+
+# class                   border  backgr. text    indicator
+client.focused            #e47c36 #e47c36 #282828 #e47c36
+client.focused_inactive   #b85334 #b85334 #232323
+client.unfocused          #b85334 #b85334 #797979 #b85334
+client.urgent             #c42d29 #c42d29 #eeeeee #c42d29
+
+##
+##Navigation
+##
+
+# change focus
+bindsym $alt+h focus left
+bindsym $alt+j focus down
+bindsym $alt+k focus up
+bindsym $alt+l focus right
+
+# move focused window
+bindsym $alt+Shift+h move left
+bindsym $alt+Shift+j move down
+bindsym $alt+Shift+k move up
+bindsym $alt+Shift+l move right
+
+#split window
+bindsym $alt+u split v
+bindsym $alt+i split h
+bindsym $alt+o fullscreen toggle
+
+#Use Mouse+$alt to drag floating windows to their wanted position
+floating_modifier $alt
+
+# toggle tiling / floating
+bindsym $alt+f floating toggle
+
+# change focus between tiling / floating windows
+bindsym $alt+d focus mode_toggle
+
+bindsym $alt+BackSpace reload
+bindsym $alt+Shift+BackSpace exec "i3-nagbar -t warning -m 'Logout?' -b 'Yes' 'i3-msg No'"
+
+# resize window (you can also use the mouse for that)
+bindsym $alt+r mode "resize"
+mode "resize" {
+        bindsym l resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym h resize grow width 10 px or 10 ppt
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+##
+## Programs
+##
+bindsym Mod4+l exec --no-startup-id lock -f Roboto-Light -- scrot -z
+
+bindsym $alt+t exec --no-startup-id termite
+bindsym $alt+c exec --no-startup-id chromium
+bindsym $alt+a exec --no-startup-id atom
+bindsym $alt+n exec --no-startup-id nautilus
+bindsym $alt+Tab exec --no-startup-id rofi -show run
+bindsym $alt+w kill
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+# bindsym $alt+t exec --no-startup-id xfce4-taskmanager
+# bindsym $alt+g exec --no-startup-id wpa_gui
+# bindsym $alt+5 exec --no-startup-id lxappearance
+# bindsym F1 exec pulseaudio-ctl mute
+# bindsym F2 exec amixer -c 1 sset PCM 5%-
+# bindsym F3 exec amixer -c 1 sset PCM 5%+
+#bindsym F5 exec pulseaudio-ctl previous
+#bindsym F6 exec playerctl play-pause
+#bindsym F7 exec pulseaudio-ctl next
+#bindsym F8 exec pulseaudio-ctl mute
+# bindsym F9 exec pulseaudio-ctl mute
+# bindsym F10 exec pulseaudio-ctl mute
+# bindsym F11 exec pulseaudio-ctl mute
+# bindsym F12 exec pulseaudio-ctl mute
+
+##
+##Unused
+##
+
+# switch to workspace
+#bindsym $alt+1 workspace 1
+# move focused container to workspace
+#bindsym $alt+Shift+1 move container to workspace 1
+
+bar {
+        i3bar_command i3bar -t
+        status_command i3blocks -c $HOME/.config/i3blocks.conf
+        position top
+        colors {
+            background #000000
+            statusline #00000000
+            separator #e47c36
+        }
+        tray_padding 0
+        height 22
+}
+
+#bar {
+#    output            eDP1
+#    status_command    i3status
+#    position          top
+#    workspace_buttons yes
+#    tray_output       none
+#    colors {
+#          background #e47c36
+#    }
+#}
+
+# focus the parent container
+#bindsym $alt+a focus parent
+
+# focus the child container
+#bindsym $alt+d focus child
+
+# change container layout (stacked, tabbed, toggle split)
+#bindsym $alt+s layout stacking
+#bindsym $alt+a layout tabbed
+#bindsym $alt+z layout toggle split
