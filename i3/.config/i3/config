@@ -14,6 +14,7 @@ font pango:FontAwesome, Droid Sans 9
 exec feh --bg-scale $HOME/wallpapers/wallpaper.jpg
 exec compton --config $HOME/.config/compton.conf -b
 exec discord-canary
+exec unclutter
 # exec sh $HOME/.config/lemonbar/lonebar
 # exec conky -c $HOME/.config/conky/lemonbar.conf -d
 # exec sh $HOME/.config/lemonbar/bbbar
