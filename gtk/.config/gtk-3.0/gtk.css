@@ -1,5 +1,9 @@
 /* Custom styles */
 
+VteTerminal, vte-terminal {
+  padding: 10px;
+}
+
 /* select-on */
 @define-color selected_bg_color #f18260;
 @define-color selected_fg_color #282828;

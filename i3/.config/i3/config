@@ -11,7 +11,7 @@ font pango:icomoon, PowerlineExtraSymbols, FontAwesome, Iosevka Term Medium, Rob
 ##
 
 
-exec feh --bg-scale $HOME/wallpapers/arial.png
+exec feh --bg-scale $HOME/wallpapers/wallpaper.jpg
 exec compton --config $HOME/.config/compton.conf -b
 # exec sh $HOME/.config/lemonbar/lonebar
 # exec conky -c $HOME/.config/conky/lemonbar.conf -d
