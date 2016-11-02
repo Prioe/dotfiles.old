@@ -20,6 +20,7 @@ call vundle#begin()
     Plugin 'scrooloose/syntastic'
     Plugin 'airblade/vim-gitgutter'
     Plugin 'mhinz/vim-signify'
+    Plugin 'ap/vim-css-color'
     " All of your Plugins must be added before the following line
     call vundle#end()            " required
     filetype plugin indent on    " required
