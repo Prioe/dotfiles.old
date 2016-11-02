@@ -12,7 +12,7 @@ font pango:icomoon, PowerlineExtraSymbols, FontAwesome, Iosevka Term Medium, Rob
 
 
 exec feh --bg-scale $HOME/wallpapers/arial.png
-exec compton --config $HOME/.config/compton/config -b
+exec compton --config $HOME/.config/compton.conf -b
 # exec sh $HOME/.config/lemonbar/lonebar
 # exec conky -c $HOME/.config/conky/lemonbar.conf -d
 # exec sh $HOME/.config/lemonbar/bbbar
@@ -129,8 +129,8 @@ bar {
         status_command i3blocks -c $HOME/.config/i3blocks.conf
         position top
         colors {
-            background #000000
-            statusline #00000000
+            background #232323
+            statusline #f6dcca
             separator #e47c36
         }
         tray_padding 0
