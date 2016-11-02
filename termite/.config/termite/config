@@ -1,7 +1,5 @@
 [options]
-font = Hack 8
-font = FontAwesome 8
-border_width = 20
+font = Meslo LG S 9
 
 [colors]
 
