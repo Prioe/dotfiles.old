@@ -1,4 +1,4 @@
-## These are my dotfiles
+## Behold 'o me humble dotfiles!
 
 ### Installation
 
