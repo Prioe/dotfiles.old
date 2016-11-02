@@ -1,5 +1,6 @@
 [options]
 font = Hack 8
+font = FontAwesome 8
 
 [colors]
 
