@@ -14,4 +14,4 @@ zstyle ':prezto:load' pmodule \
 
 zstyle ':prezto:module:editor' key-bindings 'vi'
 zstyle ':prezto:module:pacman' frontend 'yaourt'
-zstyle ':prezto:module:prompt' theme 'cloud'
+zstyle ':prezto:module:prompt' theme 'sorin'
