@@ -24,7 +24,7 @@ call vundle#begin()
     Plugin 'christoomey/vim-tmux-navigator'
     Plugin 'chriskempson/vim-tomorrow-theme'
     Plugin 'vim-airline/vim-airline-themes'
-    Plugin 'edkolev/tmuxline.vim'
+    " Plugin 'edkolev/tmuxline.vim'
     " All of your Plugins must be added before the following line
     call vundle#end()            " required
     filetype plugin indent on    " required
