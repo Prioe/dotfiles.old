@@ -4,7 +4,7 @@
 ## Mod-keys ##
 set $alt Mod1
 
-font pango:FontAwesome, Droid Sans 9
+font pango:Droid Sans 9
 
 ##
 ##Autostart

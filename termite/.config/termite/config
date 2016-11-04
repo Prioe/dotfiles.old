@@ -1,5 +1,5 @@
 [options]
-font = Meslo LG S 9
+font = MesloLGS Nerd Font 10
 resize_grip = false
 scroll_on_output = false
 scroll_on_keystroke = true
