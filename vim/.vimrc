@@ -25,6 +25,7 @@ call vundle#begin()
     Plugin 'chriskempson/vim-tomorrow-theme'
     Plugin 'vim-airline/vim-airline-themes'
     Plugin 'scrooloose/nerdtree'
+    Plugin 'ryanoasis/vim-devicons'
     " Plugin 'edkolev/tmuxline.vim'
     " All of your Plugins must be added before the following line
     call vundle#end()            " required
