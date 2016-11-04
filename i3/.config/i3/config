@@ -10,40 +10,10 @@ font pango:FontAwesome, Droid Sans 9
 ##Autostart
 ##
 
-
 exec feh --bg-scale $HOME/wallpapers/wallpaper.jpg
 exec compton --config $HOME/.config/compton.conf -b
 exec discord-canary
 exec unclutter
-# exec sh $HOME/.config/lemonbar/lonebar
-# exec conky -c $HOME/.config/conky/lemonbar.conf -d
-# exec sh $HOME/.config/lemonbar/bbbar
-# exec sh $HOME/.config/lemonbar/time
-# exec sh $HOME/.config/lemonbar/ip
-# exec sh $HOME/.config/lemonbar/memory
-# exec sh $HOME/.config/lemonbar/disk
-# exec sh $HOME/.config/lemonbar/battery
-# exec sh $HOME/.config/lemonbar/uptime
-# exec sh $HOME/.config/lemonbar/music
-# exec sh $HOME/.config/lemonbar/launchers
-
-
-##
-##Looks
-##
-
-#gaps
-gaps inner 13
-gaps outer 0
-
-#border
-new_window pixel 3
-
-# class                   border  backgr. text    indicator
-client.focused            #e47c36 #e47c36 #282828 #e47c36
-client.focused_inactive   #b85334 #b85334 #232323
-client.unfocused          #b85334 #b85334 #797979 #b85334
-client.urgent             #c42d29 #c42d29 #eeeeee #c42d29
 
 ##
 ##Navigation
@@ -94,7 +64,7 @@ mode "resize" {
 ##
 bindsym Mod4+l exec --no-startup-id lock -f Roboto-Light -- scrot -z
 
-bindsym $alt+t exec --no-startup-id termite
+bindsym $alt+t exec --no-startup-id termite --exec tmux
 bindsym $alt+c exec --no-startup-id chromium
 bindsym $alt+a exec --no-startup-id atom
 bindsym $alt+n exec --no-startup-id nautilus
@@ -102,62 +72,131 @@ bindsym $alt+Tab exec --no-startup-id rofi -show run
 bindsym $alt+w kill
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
-# bindsym $alt+t exec --no-startup-id xfce4-taskmanager
-# bindsym $alt+g exec --no-startup-id wpa_gui
-# bindsym $alt+5 exec --no-startup-id lxappearance
-# bindsym F1 exec pulseaudio-ctl mute
-# bindsym F2 exec amixer -c 1 sset PCM 5%-
-# bindsym F3 exec amixer -c 1 sset PCM 5%+
-#bindsym F5 exec pulseaudio-ctl previous
-#bindsym F6 exec playerctl play-pause
-#bindsym F7 exec pulseaudio-ctl next
-#bindsym F8 exec pulseaudio-ctl mute
-# bindsym F9 exec pulseaudio-ctl mute
-# bindsym F10 exec pulseaudio-ctl mute
-# bindsym F11 exec pulseaudio-ctl mute
-# bindsym F12 exec pulseaudio-ctl mute
 
 ##
-##Unused
+##Looks
 ##
 
-# switch to workspace
-#bindsym $alt+1 workspace 1
-# move focused container to workspace
-#bindsym $alt+Shift+1 move container to workspace 1
+# colors from X
+set_from_resource $darkred     color1  #000000
+set_from_resource $red         color9  #000000
+set_from_resource $darkgreen   color2  #000000
+set_from_resource $green       color10 #000000
+set_from_resource $darkyellow  color3  #000000
+set_from_resource $yellow      color11 #000000
+set_from_resource $darkblue    color4  #000000
+set_from_resource $blue        color12 #000000
+set_from_resource $darkmagenta color5  #000000
+set_from_resource $magenta     color13 #000000
+set_from_resource $darkcyan    color6  #000000
+set_from_resource $cyan        color14 #000000
+set_from_resource $darkwhite   color7  #000000
+set_from_resource $white       color15 #000000
+
+# set custom black colors
+set $black       #282a2e
+set $darkblack   #1d1f21
+set $transparent #00000099
+set $brightwhite #f9f9f9
+
+# add special colors
+set $brightslate #526b77
+set $slate #455a64
+set $darkslate #37474f
+set $brightorange #e47c36
+set $orange #b85334
+set $darkorange #c42d29
+
+#gaps
+gaps inner 13
+gaps outer 0
+
+#border
+new_window pixel 3
+
+# class                   border  backgr. text    indicator
+client.focused            #e47c36 #e47c36 #282828 #e47c36
+client.focused_inactive   #b85334 #b85334 #232323
+client.unfocused          #b85334 #b85334 #797979 #b85334
+client.urgent             #c42d29 #c42d29 #eeeeee #c42d29
 
 bar {
         i3bar_command i3bar -t
-        status_command i3blocks -c $HOME/.config/i3blocks.conf
+        status_command i3blocks -c $HOME/.config/i3blocks/config
         position top
-        colors {
-            background #232323
-            statusline #f6dcca
-            separator #e47c36
-        }
-        tray_padding 0
-        tray_output primary
         height 22
+        workspace_buttons yes
+        strip_workspace_numbers yes
+        tray_padding 5
+        tray_output primary
+        colors {
+             # <bar>
+             separator           $brightorange
+             background          $darkblack
+             statusline          $white
+
+             # <workclass>       <border>      <bg>     <text>
+             focused_workspace   $darkblack   $brightslate $brightwhite
+             inactive_workspace  $transparent $black       $white
+             active_workspace    $darkblack   $darkwhite   $brightwhite
+             urgent_workspace    $darkblack   $darkred     $brightwhite
+             binding_mode        $darkblack   $darkmagenta $brightwhite
+        }
 }
 
-#bar {
-#    output            eDP1
-#    status_command    i3status
-#    position          top
-#    workspace_buttons yes
-#    tray_output       none
-#    colors {
-#          background #e47c36
-#    }
-#}
 
-# focus the parent container
-#bindsym $alt+a focus parent
 
-# focus the child container
-#bindsym $alt+d focus child
 
-# change container layout (stacked, tabbed, toggle split)
-#bindsym $alt+s layout stacking
-#bindsym $alt+a layout tabbed
-#bindsym $alt+z layout toggle split
+# names / variables
+set $WL0 0<span font='10' weight='light' underline='low'>3</span>
+set $WS1 1:
+set $WS2 2:
+set $WS3 3:
+set $WS4 4:
+set $WS5 5:
+set $WS6 6:
+set $WS7 7:
+set $WS8 8:
+set $WS9 9:
+set $WS0 10:
+
+
+# Window title format {{{
+
+for_window [class="(?i)"] title_format "<span weight='ultraheavy' foreground='$darkblack'>   </span><span weight='bold' >%title</span>"
+
+# }}}
+
+# Focus windows {{{
+
+no_focus [window_role="pop-up"]
+focus_on_window_activation focus
+for_window [class="(?i)"] focus
+
+# }}}
+
+# Floating windows {{{
+
+# window rules
+for_window [window_role="task_dialog|bubble|page-info|Preferences"] floating enable
+for_window [title="GtkLP|Steam - Update*|Event Tester|glxgears|Taakbeheer -*|Discord Updater"] floating enable
+for_window [instance="gvim|chromium_app_list|radio|gufw.py|Minecraft 1.*|sun-awt-X11-XFramePeer|net-minecraft-bootstrap-Bootstrap|yad|wifi-menu"] floating enable
+for_window [class="gtklp|(?i)gcolor3|imv|(?i)pulseaudio-equalizer.py|(?i)deja-dup|etcher|(?i)gksu-properties|(?i)dconf-editor|mpv|feh|(?i)qtpass|xfontsel|xfd|arandr|(?i)blueberry.py|blueman-manager|blueman-services|lxappearance|pavucontrol|transmission-gtk|xpad|galculator|engrampa|eom|guvcview|mirage|gpicview|simplescreenrecorder|zenity|info|gsimplecal|deluge|(?i)gcr-viewer"] floating enable
+
+# modifier
+floating_modifier $alt
+
+# window sizes
+floating_minimum_size -1 x -1
+floating_maximum_size 1340 x 742
+#floating_maximum_size -1 x -1
+
+# Move windows to workspaces
+
+assign [class="discord"] $WS0
+assign [instance="termite"] $WS1
+assign [window_role="^browser$"] $WS2
+
+
+
+exec i3-msg workspace 1 "<span font='10' weight='light' underline='low'>3</span>" #fix workspace 1 name not applied at login (race condition?)
