@@ -24,6 +24,7 @@ call vundle#begin()
     Plugin 'christoomey/vim-tmux-navigator'
     Plugin 'chriskempson/vim-tomorrow-theme'
     Plugin 'vim-airline/vim-airline-themes'
+    Plugin 'scrooloose/nerdtree'
     " Plugin 'edkolev/tmuxline.vim'
     " All of your Plugins must be added before the following line
     call vundle#end()            " required

@@ -1,3 +1,15 @@
+!Custom Color
+#define t_black       #282a2e
+#define t_darkblack   #1d1f21
+#define t_brightwhite #f9f9f9
+
+#define t_brightslate #526b77
+#define t_slate #455a64
+#define t_darkslate #37474f
+#define t_brightorange #e47c36
+#define t_specialorange #b85334
+#define t_darkorange #c42d29
+
 !TomorrowNight
 #define t_background        #1d1f21
 #define t_current_line      #282a2e
@@ -48,3 +60,27 @@
 ! Light Grey (Selection) + White (Current Line)
 *.color7:       t_selection
 *.color15:      t_current_line
+
+! ## Rofi settings
+rofi.font:             Meslo LG S 10
+rofi.terminal:         i3-sensible-terminal
+rofi.separator-style:  solid
+rofi.hide-scrollbar:   false
+rofi.scrollbar-width:  6
+rofi.bw:               3
+rofi.padding:          15
+rofi.eh:               1
+rofi.line-margin:      2
+rofi.opacity:          90
+rofi.width:            450
+rofi.lines:            15
+rofi.threads:          4
+!custom keybinding
+rofi.kb-delete-entry:  Delete,Alt+BackSpace
+
+! Rofi colors
+rofi.color-enabled:    true
+rofi.color-window:     #2d2d2d, t_brightorange, t_brightorange
+rofi.color-normal:     #2d2d2d, #c7c7c7, #333333, t_orange, #101112
+rofi.color-active:     #2d2d2d, #b5bd68, #333333, #b5bd68, #101112
+rofi.color-urgent:     #2d2d2d, #cc6666, #333333, #cc6666, #101112
