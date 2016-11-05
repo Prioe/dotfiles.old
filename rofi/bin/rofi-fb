@@ -1,0 +1,1 @@
+ rofi -width 55 -modi "open:fb" -show open
