@@ -29,6 +29,7 @@ command=$HOME/.config/i3blocks/blocks/$BLOCK_NAME
 markup=pango
 separator_block_width=10
 separator=false
+
 align=right
 # borders
 # border_top=0
@@ -37,6 +38,17 @@ align=right
 # border_left=0
 # border=#707880
 # background=#2f343f
+
+[mail]
+interval=10
+
+[current_track]
+command=$HOME/.config/i3blocks/blocks/scroll $BLOCK_NAME 
+interval=repeat
+
+
+[time]
+interval=1
 
 [i3menu]
 interval=once
