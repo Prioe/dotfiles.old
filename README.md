@@ -9,7 +9,7 @@
 ```
 $ git clone https://github.com/Prioe/dotfiles.git ~/dotfiles
 $ cd ~/dotfiles
-$ git submodule init && git submodule update
+$ git submodule update --init --recursive
 $ stow -t ~ $(ls -d */)
 ```
 
