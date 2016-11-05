@@ -62,7 +62,7 @@
 *.color15:      t_current_line
 
 ! ## Rofi settings
-rofi.font:             Meslo LG S 10
+rofi.font:             MesloLGS Nerd Font 10
 rofi.terminal:         i3-sensible-terminal
 rofi.separator-style:  solid
 rofi.hide-scrollbar:   false
