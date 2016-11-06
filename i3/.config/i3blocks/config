@@ -1,3 +1,5 @@
+
+
 # i3blocks config file
 #
 # Please see man i3blocks for a complete reference!
@@ -39,6 +41,7 @@ align=right
 # border=#707880
 # background=#2f343f
 
+
 [mail]
 interval=10
 
@@ -46,6 +49,29 @@ interval=10
 command=$HOME/.config/i3blocks/blocks/scroll $BLOCK_NAME 
 interval=repeat
 
+[separator2]
+command=$HOME/.config/i3blocks/blocks/util/default_pango \| "#cccccc" "11"
+interval=once
+
+[i3mpc]
+instance=random
+interval=1
+
+[i3mpc]
+instance=prev
+interval=once
+
+[i3mpc]
+instance=toggle
+interval=1
+
+[i3mpc]
+instance=next
+interval=once
+
+[i3mpc]
+instance=repeat
+interval=1
 
 [time]
 interval=1

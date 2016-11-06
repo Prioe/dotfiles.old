@@ -1,0 +1,51 @@
+#!/usr/bin/bash
+
+INSTANCE="${BLOCK_INSTANCE}"
+SEPARATOR="$(~/.config/i3blocks/blocks/util/separator)"
+
+RANDOM_ICON=
+REPEAT_ICON=
+NEXT_ICON=
+PREV_ICON=
+PLAY_ICON=
+PAUSE_ICON=
+OFF_COLOR="#373b41"
+
+default_pango () {
+  ~/.config/i3blocks/blocks/util/default_pango $*
+}
+
+mpc_stat () {
+  mpc | grep -Po "(?<=$1: )\w+"
+}
+
+case "$INSTANCE" in
+  prev) echo $(default_pango $PREV_ICON) ;;
+  next) echo $(default_pango $NEXT_ICON) ;;
+  toggle)
+    if [[ $(mpc | grep -Po "\[.*\]") == "[paused]" ]]; then
+      default_pango $PLAY_ICON
+    else
+      default_pango $PAUSE_ICON
+    fi
+    ;;
+  random) 
+    if [[ $(mpc_stat random) == "on" ]]; then
+      default_pango $RANDOM_ICON
+    else
+      default_pango $RANDOM_ICON $OFF_COLOR
+    fi
+    ;;
+  repeat) 
+    if [[ $(mpc_stat repeat) == "on" ]]; then
+      default_pango $REPEAT_ICON
+    else
+      default_pango $REPEAT_ICON $OFF_COLOR
+    fi
+    ;;
+esac
+
+
+case "$BLOCK_BUTTON" in
+  1) mpc $INSTANCE ;;
+esac
