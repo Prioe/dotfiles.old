@@ -4,7 +4,8 @@ separator="$(~/.config/i3blocks/blocks/util/separator)"
 
 get_unread()
 {
-  find ~/mail -type f | grep -vE ',[^,]*S[^,]*$' | wc -l
+  # find ~/mail -type f | grep -vE ',[^,]*S[^,]*$' | wc -l
+  notmuch count tag:unread
 }
 
 echo "<span font='8.5' font_stretch='expanded' font_weight='ultralight' foreground='#cccccc' >$separator  $(get_unread)</span>"

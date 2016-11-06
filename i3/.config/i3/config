@@ -179,10 +179,9 @@ for_window [class="(?i)"] focus
 # Floating windows {{{
 
 # window rules
-for_window [window_role="task_dialog|bubble|page-info|Preferences"] floating enable
-for_window [title="GtkLP|Steam - Update*|Event Tester|glxgears|Taakbeheer -*|Discord Updater"] floating enable
-for_window [instance="gvim|chromium_app_list|radio|gufw.py|Minecraft 1.*|sun-awt-X11-XFramePeer|net-minecraft-bootstrap-Bootstrap|yad|wifi-menu"] floating enable
-for_window [class="gtklp|(?i)gcolor3|imv|(?i)pulseaudio-equalizer.py|(?i)deja-dup|etcher|(?i)gksu-properties|(?i)dconf-editor|mpv|feh|(?i)qtpass|xfontsel|xfd|arandr|(?i)blueberry.py|blueman-manager|blueman-services|lxappearance|pavucontrol|transmission-gtk|xpad|galculator|engrampa|eom|guvcview|mirage|gpicview|simplescreenrecorder|zenity|info|gsimplecal|deluge|(?i)gcr-viewer"] floating enable
+for_window [title="GtkLP|Discord Updater"] floating enable
+for_window [class="Wacom_utility.py|Grub-customizer|mpv|feh|pavucontrol"] floating enable
+for_window [title="gcal-calm_termite"] floating enable, resize grow up 170px, resize grow down 170px, resize grow left 280, resize grow right 280
 
 # modifier
 floating_modifier $alt
@@ -197,6 +196,7 @@ floating_maximum_size 1340 x 742
 assign [class="discord"] $WS0
 assign [instance="termite"] $WS1
 assign [window_role="^browser$"] $WS2
+assign [title="ncmpcpp_termite"] $WS6
 
 
 
