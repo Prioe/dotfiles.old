@@ -10,3 +10,7 @@ get_unread()
 
 echo "<span font='8.5' font_stretch='expanded' font_weight='ultralight' foreground='#cccccc' >$separator  $(get_unread)</span>"
 
+# mouse buttons
+case $BLOCK_BUTTON in
+    1) termite --exec mutt --title mutt_termite
+esac 

@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+DEFAULT_COLOR="#cccccc"
+DEFAULT_SIZE="8.5"
+echo "<span font='${3:-$DEFAULT_SIZE}' font_stretch='expanded' font_weight='ultralight' foreground='${2:-$DEFAULT_COLOR}' >$1</span>"

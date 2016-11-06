@@ -153,7 +153,7 @@ set $WL0 0<span font='10' weight='light' underline='low'>3</span>
 set $WS1 1:
 set $WS2 2:
 set $WS3 3:
-set $WS4 4:
+set $WS4 4:
 set $WS5 5:
 set $WS6 6:
 set $WS7 7:
@@ -180,7 +180,7 @@ for_window [class="(?i)"] focus
 
 # window rules
 for_window [title="GtkLP|Discord Updater"] floating enable
-for_window [class="Wacom_utility.py|Grub-customizer|mpv|feh|pavucontrol"] floating enable
+for_window [class="Wacom_utility.py|Grub-customizer|mpv|feh|Pavucontrol"] floating enable
 for_window [title="gcal-calm_termite"] floating enable, resize grow up 170px, resize grow down 170px, resize grow left 280, resize grow right 280
 
 # modifier
@@ -194,6 +194,7 @@ floating_maximum_size 1340 x 742
 # Move windows to workspaces
 
 assign [class="discord"] $WS0
+assign [title="mutt_termite"] $WS4
 assign [instance="termite"] $WS1
 assign [window_role="^browser$"] $WS2
 assign [title="ncmpcpp_termite"] $WS6
