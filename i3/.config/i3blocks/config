@@ -45,7 +45,7 @@ align=right
 interval=5
 
 [mail]
-interval=10
+interval=5
 
 [current_track]
 command=$BLOCKS_DIR/scroll $BLOCK_NAME 

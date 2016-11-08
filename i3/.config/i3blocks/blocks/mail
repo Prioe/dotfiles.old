@@ -1,6 +1,6 @@
 #!/bin/bash
 
-separator="$(~/.config/i3blocks/blocks/util/separator)"
+separator=$($BLOCKS_DIR/separator)
 
 get_unread()
 {
@@ -8,7 +8,13 @@ get_unread()
   notmuch count tag:unread
 }
 
-echo "<span font='8.5' font_stretch='expanded' font_weight='ultralight' foreground='#cccccc' >$separator  $(get_unread)</span>"
+re='^[0-9]+$'
+msgs=$(get_unread)
+if ! [[ $msgs =~ $re  ]] || [[ $msgs -eq 0 ]] ; then
+  echo ""
+else
+  echo "<span>$separator $msgs</span>"
+fi
 
 # mouse buttons
 case $BLOCK_BUTTON in
