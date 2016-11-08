@@ -41,6 +41,8 @@ align=right
 # border=#707880
 # background=#2f343f
 
+[bandwidth]
+interval=persistent
 
 [mail]
 interval=10

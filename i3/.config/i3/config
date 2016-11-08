@@ -180,7 +180,7 @@ for_window [class="(?i)"] focus
 
 # window rules
 for_window [title="GtkLP|Discord Updater"] floating enable
-for_window [class="Wacom_utility.py|Grub-customizer|mpv|feh|Pavucontrol"] floating enable
+for_window [class="obs|Wacom_utility.py|Grub-customizer|mpv|feh|Pavucontrol"] floating enable
 for_window [title="gcal-calm_termite"] floating enable, resize grow up 170px, resize grow down 170px, resize grow left 280, resize grow right 280
 
 # modifier
