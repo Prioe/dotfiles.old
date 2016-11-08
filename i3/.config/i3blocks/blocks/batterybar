@@ -117,4 +117,4 @@ esac
 if [[ "$BLOCK_BUTTON" -eq 1 ]]; then 
     echo "$separator$status <span foreground=\"$color\">$percentage%$remaining_formatted</span>"
 fi
-    echo "$separator <span foreground=\"$color\">$squares</span>" 
+    echo "$separator [<span foreground=\"$color\">$squares</span>]" 
