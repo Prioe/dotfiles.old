@@ -78,20 +78,20 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 ##
 
 # colors from X
-set_from_resource $darkred     color1  #000000
-set_from_resource $red         color9  #000000
-set_from_resource $darkgreen   color2  #000000
-set_from_resource $green       color10 #000000
-set_from_resource $darkyellow  color3  #000000
-set_from_resource $yellow      color11 #000000
-set_from_resource $darkblue    color4  #000000
-set_from_resource $blue        color12 #000000
-set_from_resource $darkmagenta color5  #000000
-set_from_resource $magenta     color13 #000000
-set_from_resource $darkcyan    color6  #000000
-set_from_resource $cyan        color14 #000000
-set_from_resource $darkwhite   color7  #000000
-set_from_resource $white       color15 #000000
+set $darkred     #cc6666
+set $red         #ff3334
+set $darkgreen   #b5bd68
+set $green       #9ec400
+set $darkyellow  #de935f
+set $yellow      #f0c674
+set $darkblue    #81a2be
+set $blue        #81a2be
+set $darkmagenta #b294bb
+set $magenta     #b777e0
+set $darkcyan    #8abeb7
+set $cyan        #54ced6
+set $darkwhite   #969896
+set $white       #c5c8c6
 
 # set custom black colors
 set $black       #282a2e

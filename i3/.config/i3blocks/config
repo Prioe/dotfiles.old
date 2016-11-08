@@ -27,7 +27,7 @@
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
 #command=/usr/lib/i3blocks/$BLOCK_NAME
-command=$HOME/.config/i3blocks/blocks/$BLOCK_NAME
+command=$BLOCKS_DIR/$BLOCK_NAME
 markup=pango
 separator_block_width=10
 separator=false
@@ -44,15 +44,18 @@ align=right
 [bandwidth]
 interval=persistent
 
+[batterybar]
+interval=5
+
 [mail]
-interval=10
+interval=5
 
 [current_track]
-command=$HOME/.config/i3blocks/blocks/scroll $BLOCK_NAME 
+command=$BLOCKS_DIR/scroll $BLOCK_NAME 
 interval=repeat
 
 [separator2]
-command=$HOME/.config/i3blocks/blocks/util/default_pango \| "#cccccc" "11"
+command=$BLOCKS_DIR/util/default_pango \| "#cccccc" "11"
 interval=once
 
 [i3mpc]

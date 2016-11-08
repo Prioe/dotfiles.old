@@ -19,31 +19,35 @@ mpc_stat () {
   mpc | grep -Po "(?<=$1: )\w+"
 }
 
-case "$INSTANCE" in
-  prev) echo $(default_pango $PREV_ICON) ;;
-  next) echo $(default_pango $NEXT_ICON) ;;
-  toggle)
-    if [[ $(mpc | grep -Po "\[.*\]") == "[paused]" ]]; then
-      default_pango $PLAY_ICON
-    else
-      default_pango $PAUSE_ICON
-    fi
-    ;;
-  random) 
-    if [[ $(mpc_stat random) == "on" ]]; then
-      default_pango $RANDOM_ICON
-    else
-      default_pango $RANDOM_ICON $OFF_COLOR
-    fi
-    ;;
-  repeat) 
-    if [[ $(mpc_stat repeat) == "on" ]]; then
-      default_pango $REPEAT_ICON
-    else
-      default_pango $REPEAT_ICON $OFF_COLOR
-    fi
-    ;;
-esac
+if hash mpc 2>/dev/null ; then
+  case "$INSTANCE" in
+    prev) echo $(default_pango $PREV_ICON) ;;
+    next) echo $(default_pango $NEXT_ICON) ;;
+    toggle)
+      if [[ $(mpc | grep -Po "\[.*\]") == "[paused]" ]]; then
+        default_pango $PLAY_ICON
+      else
+        default_pango $PAUSE_ICON
+      fi
+      ;;
+    random) 
+      if [[ $(mpc_stat random) == "on" ]]; then
+        default_pango $RANDOM_ICON
+      else
+        default_pango $RANDOM_ICON $OFF_COLOR
+      fi
+      ;;
+    repeat) 
+      if [[ $(mpc_stat repeat) == "on" ]]; then
+        default_pango $REPEAT_ICON
+      else
+        default_pango $REPEAT_ICON $OFF_COLOR
+      fi
+      ;;
+  esac
+else
+  echo ""
+fi
 
 
 case "$BLOCK_BUTTON" in

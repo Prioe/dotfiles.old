@@ -1,0 +1,25 @@
+#!/usr/bin/bash
+
+WPA_CONFIG="$HOME/.cat_installer/cat_installer.conf"
+WIFI_DEVICE="wlp9s0"
+
+echo
+echo "Brutally mudering all wpa_supplicant processes and releasing dhcpcd interfaces back into the ocean ..."
+
+sudo systemctl stop wpa_supplicant.service
+sudo pkill --echo wpa_supplica
+sudo dhcpcd --release $WIFI_DEVICE
+
+echo
+echo "Casting wpa_supplicant incantation ($WPA_CONFIG at $WIFI_DEVICE)"
+
+sudo wpa_supplicant -B -i $WIFI_DEVICE -c $WPA_CONFIG
+
+echo
+echo "Waiting for the wpa_supplicant gods to accept my prayers to let me start dhcpcd ..."
+sleep 10
+echo
+echo "Summoning the dhcpcd ($WIFI_DEVICE) ..."
+
+
+sudo dhcpcd $WIFI_DEVICE
