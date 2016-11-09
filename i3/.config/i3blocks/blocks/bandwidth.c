@@ -73,11 +73,11 @@ void get_values(char *const iface, time_t * const s, ulli * const received, ulli
 void display(int const unit, double b, int const warning, int const critical)
 {
   if (critical != 0 && b > critical) {
-    printf("<span font='8.5' font_stretch='expanded' font_weight='ultra_light' color='%s'>", RED);
+    printf("<span color='%s'>", RED);
   } else if (warning != 0 && b > warning) {
-    printf("<span font='8.5' font_stretch='expanded' font_weight='ultra_light' color='%s'>", ORANGE);
+    printf("<span color='%s'>", ORANGE);
   } else {
-    printf("<span font='8.5' font_stretch='expanded' font_weight='ultra_light' color='#cccccc'>");
+    printf("<span>");
   }
 
   if (unit == 'b')
