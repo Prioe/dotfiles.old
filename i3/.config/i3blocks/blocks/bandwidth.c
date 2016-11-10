@@ -136,6 +136,7 @@ int main(int argc, char *argv[])
 
     rx = (received - received_old) / (float)(s - s_old);
     tx = (sent - sent_old) / (float)(s - s_old);
+    printf("<span font='10' > </span>");
     display(unit, rx, warningrx, criticalrx);
     printf(" ");
     display(unit, tx, warningtx, criticaltx);
