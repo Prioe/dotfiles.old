@@ -54,9 +54,9 @@ interval=5
 command=$BLOCKS_DIR/scroll $BLOCK_NAME 
 interval=repeat
 
-[separator2]
-command=$BLOCKS_DIR/util/default_pango \| "#cccccc" "11"
-interval=once
+# [separator2]
+# command=$BLOCKS_DIR/util/default_pango \| "#cccccc" "11"
+# interval=once
 
 [i3mpc]
 instance=random
