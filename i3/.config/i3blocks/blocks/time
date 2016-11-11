@@ -2,7 +2,7 @@
 
 separator="$(~/.config/i3blocks/blocks/util/separator)"
 
-echo -e "<span font='8.5' font_stretch='expanded' font_weight='ultralight' foreground='#cccccc' >$separator  $(date +"%a %d %b %Y $separator  %T")</span>"
+echo -e "<span>$separator  $(date +"%a %d %b %Y $separator  %T")</span>"
 #  ☰  
 
 # mouse buttons

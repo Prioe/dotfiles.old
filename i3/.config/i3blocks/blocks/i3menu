@@ -3,7 +3,7 @@
 separator="$(~/.config/i3blocks/blocks/util/separator)"
 
 # menu icon
-echo -e "<span font='8.5' font_stretch='expanded' font_weight='ultralight' foreground='#cccccc' >$separator </span>"
+echo -e "<span>$separator </span>"
 #  ☰  
 
 # mouse buttons
