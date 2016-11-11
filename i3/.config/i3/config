@@ -59,6 +59,20 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+# bind workspace switching
+bindsym $alt+grave workspace $WL0
+bindsym $alt+1 workspace $WS1
+bindsym $alt+2 workspace $WS2
+bindsym $alt+3 workspace $WS3
+bindsym $alt+4 workspace $WS4
+bindsym $alt+5 workspace $WS5
+bindsym $alt+6 workspace $WS6
+bindsym $alt+7 workspace $WS7
+bindsym $alt+8 workspace $WS8
+bindsym $alt+9 workspace $WS9
+bindsym $alt+0 workspace $WS0
+
+
 ##
 ## Programs
 ##
