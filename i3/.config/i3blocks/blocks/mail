@@ -5,7 +5,8 @@ separator=$($BLOCKS_DIR/separator)
 get_unread()
 {
   # find ~/mail -type f | grep -vE ',[^,]*S[^,]*$' | wc -l
-  notmuch count tag:unread
+  # notmuch count tag:unread
+  curl -u $(gpg -dq ~/.passwords.gpg | grep -Po "(?<=gmail: ).*") --silent 'https://mail.google.com/mail/feed/atom' | sed -n 's:.*<fullcount>\(.*\)</fullcount>.*:\1:p'
 }
 
 re='^[0-9]+$'
