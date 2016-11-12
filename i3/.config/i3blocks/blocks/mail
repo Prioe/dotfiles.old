@@ -19,5 +19,6 @@ fi
 
 # mouse buttons
 case $BLOCK_BUTTON in
-    1) termite --exec mutt --title mutt_termite
+    # 1) termite --exec mutt --title mutt_termite
+    1) chromium --app=https://mail.google.com
 esac 

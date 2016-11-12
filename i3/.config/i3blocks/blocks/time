@@ -7,5 +7,6 @@ echo -e "<span>$separator  $(date +"%a %d %b %Y $separator  %T")</span>"
 
 # mouse buttons
 case $BLOCK_BUTTON in
-    1) termite --exec gcal-calm --title gcal-calm_termite
+    #1) termite --exec gcal-calm --title gcal-calm_termite
+    1) chromium --app=https://calendar.google.com
 esac 

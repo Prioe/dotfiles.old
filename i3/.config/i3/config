@@ -170,7 +170,7 @@ set $WS3 3:
 set $WS4 4:
 set $WS5 5:
 set $WS6 6:
-set $WS7 7:
+set $WS7 7:
 set $WS8 8:
 set $WS9 9:
 set $WS0 10:
@@ -209,6 +209,8 @@ floating_maximum_size 1340 x 742
 
 assign [class="discord"] $WS0
 assign [title="mutt_termite"] $WS4
+assign [instance="mail.google.com"] $WS4
+assign [instance="calendar.google.com"] $WS7
 assign [instance="termite"] $WS1
 assign [window_role="^browser$"] $WS2
 assign [title="ncmpcpp_termite"] $WS6
