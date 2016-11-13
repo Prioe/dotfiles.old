@@ -122,11 +122,11 @@ set $orange #b85334
 set $darkorange #c42d29
 
 #gaps
-gaps inner 13
-gaps outer 0
+gaps inner 4
+gaps outer 2
 
 #border
-new_window pixel 3
+new_window pixel 1
 
 # class                   border  backgr. text    indicator
 client.focused            #e47c36 #e47c36 #282828 #e47c36
@@ -209,6 +209,7 @@ floating_maximum_size 1340 x 742
 
 assign [class="discord"] $WS0
 assign [title="mutt_termite"] $WS4
+assign [instance="atom"] $WS5
 assign [instance="mail.google.com"] $WS4
 assign [instance="calendar.google.com"] $WS7
 assign [instance="termite"] $WS1
