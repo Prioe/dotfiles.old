@@ -82,6 +82,7 @@ bindsym Mod4+l exec --no-startup-id lock -f Roboto-Light -- scrot -z
 bindsym $alt+t exec --no-startup-id termite --exec tmux
 bindsym $alt+c exec --no-startup-id chromium
 bindsym $alt+a exec --no-startup-id atom
+bindsym $alt+q exec --no-startup-id chromium --app=http://localhost:8080
 bindsym $alt+n exec --no-startup-id chromium --app=https://www.netflix.com
 bindsym $alt+y exec --no-startup-id chromium --app=https://www.youtube.de
 bindsym $alt+Tab exec --no-startup-id rofi -show run
@@ -212,7 +213,7 @@ floating_maximum_size 1340 x 742
 assign [class="discord"] $WS0
 assign [title="mutt_termite"] $WS4
 assign [instance="mail.google.com"] $WS4
-assign [instance="atom"] $WS5
+assign [instance="atom|localhost"] $WS5
 assign [instance="www.youtube.de|www.netflix.com|totem"] $WS6
 assign [instance="calendar.google.com"] $WS7
 assign [instance="termite"] $WS1
