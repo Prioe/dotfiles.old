@@ -60,6 +60,10 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+# move workspaces between monitors
+bindsym $alt+Mod4+h move workspace to output left
+bindsym $alt+Mod4+l move workspace to output right
+
 # bind workspace switching
 bindsym $alt+grave workspace $WL0
 bindsym $alt+1 workspace $WS1
@@ -78,7 +82,6 @@ bindsym $alt+0 workspace $WS0
 ## Programs
 ##
 bindsym Mod4+l exec --no-startup-id lock -f Roboto-Light -- scrot -z
-
 bindsym $alt+t exec --no-startup-id termite --exec tmux
 bindsym $alt+c exec --no-startup-id chromium
 bindsym $alt+a exec --no-startup-id atom
@@ -198,6 +201,7 @@ for_window [class="(?i)"] focus
 # window rules
 for_window [title="GtkLP|Discord Updater|Android Emulator - *"] floating enable
 for_window [class="opsu\!|obs|Wacom_utility.py|Grub-customizer|mpv|feh|Pavucontrol"] floating enable
+for_window [instance="lastpass|cloudsn"] floating enable
 for_window [title="gcal-calm_termite"] floating enable, resize grow up 170px, resize grow down 170px, resize grow left 280, resize grow right 280
 
 # modifier
