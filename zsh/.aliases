@@ -1,0 +1,1 @@
+alias log-installed-packages="pacman -Qe | grep --color=always -v (.*) | cut -d/ -f2- | awk '{print \$1}' | tee $HOME/packages-$(hostname).txt"
