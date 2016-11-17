@@ -1,0 +1,41 @@
+"*":
+  "atom-material-ui":
+    colors:
+      abaseColor: "#f99157"
+      accentColor: "#393939"
+      genAccent: true
+    fonts:
+      fontSize: 15
+    tabs:
+      compactTabs: true
+    treeView:
+      compactList: true
+    ui:
+      panelShadows: true
+  core:
+    autoHideMenuBar: true
+    projectHome: "/home/micha/code"
+    telemetryConsent: "no"
+    themes: [
+      "atom-material-ui"
+      "tomorrow-night-eighties-syntax"
+    ]
+    warnOnLargeFileLimit: 5
+  editor:
+    fontSize: 12
+    showIndentGuide: true
+    showInvisibles: true
+    tabType: "soft"
+  "exception-reporting":
+    userId: "78322763-acfa-f185-7415-41db8932acbb"
+  fonts:
+    fontFamily: "Meslo"
+  linter:
+    gutterEnabled: false
+  minimap:
+    plugins:
+      pigments: true
+      pigmentsDecorationsZIndex: 0
+  "relative-numbers": {}
+  welcome:
+    showOnStartup: false

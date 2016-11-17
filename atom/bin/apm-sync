@@ -1,0 +1,54 @@
+#!/bin/bash
+
+while [[ $# -gt 0 ]]
+do
+key="$1"
+
+case $key in
+    -u|--update)
+    UPDATE=YES
+    ;;
+    --reinstall)
+    REINSTALL=YES
+    ;;
+    -i|--install)
+    INSTALL=YES
+    ;;
+    *)
+    ;;
+esac
+shift
+done
+
+if [[ ! $UPDATE ]] && [[ ! $REINSTALL ]] && [[ ! $INSTALL ]]; then
+  echo Usage: apm-sync [OPTION]...
+  echo Manage your apm packages in a way to be used with git managed dotfiles in
+  echo a stow way. All operations will backup the current apm packages and a
+  echo package list to ~/apm-backup
+  echo
+  echo "  -u, --update     Update the current package list"
+  echo "  -i, --install    Install packages from the package list"
+  echo "      --reinstall  Remove all packages and install from the package list"
+  exit 1
+fi
+
+BACKUP_DIR=$HOME/apm-backup.$(date +%Y%m%d%H%M%S)
+
+mkdir $BACKUP_DIR
+apm list --installed --bare  | tee $BACKUP_DIR/packages-current.txt &> /dev/null
+
+if [[ $UPDATE ]]; then
+  echo Updating current package list with currently installed packages ...
+  cp $HOME/.atom/packages.txt $BACKUP_DIR/packages.txt
+  apm list --installed --bare | awk -F@ '{print $1}' | tee $HOME/.atom/packages.txt &> /dev/null
+fi
+
+if [[ $REINSTALL ]]; then
+  echo Backing up current packages ...
+  mv $HOME/.atom/packages $BACKUP_DIR/packages
+fi
+
+if [[ $REINSTALL ]] || [[ $INSTALL ]]; then
+  echo Installing packages from file ...
+  apm install --packages-file $HOME/.atom/packages.txt
+fi
