@@ -14,7 +14,7 @@ exec feh --bg-scale $HOME/wallpapers/wallpaper.jpg
 exec compton --config $HOME/.config/compton.conf -b
 exec discord-canary
 exec unclutter
-exec mpd-notification -m $HOME/Music
+#mpd-notification -m $HOME/Music &
 
 ##
 ##Navigation
@@ -172,7 +172,7 @@ bar {
 set $WL0 0<span font='10' weight='light' underline='low'>3</span>
 set $WS1 1:
 set $WS2 2:
-set $WS3 3:
+set $WS3 3:
 set $WS4 4:
 set $WS5 5:
 set $WS6 6:
@@ -221,6 +221,7 @@ assign [instance="atom|localhost"] $WS5
 assign [instance="www.youtube.de|www.netflix.com|totem"] $WS6
 assign [instance="calendar.google.com"] $WS7
 assign [instance="termite"] $WS1
+assign [instance="gitkraken"] $WS3
 assign [window_role="^browser$"] $WS2
 assign [title="ncmpcpp_termite"] $WS6
 assign [class="^*$"] $WS9
