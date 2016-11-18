@@ -14,6 +14,9 @@
       panelShadows: true
   core:
     autoHideMenuBar: true
+    disabledPackages: [
+      "linter-tidy"
+    ]
     projectHome: "/home/micha/code"
     telemetryConsent: "no"
     themes: [
