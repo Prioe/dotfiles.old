@@ -35,6 +35,9 @@
     fontFamily: "Meslo"
   linter:
     gutterEnabled: false
+    showErrorPanel: false
+  "linter-eslint":
+    fixOnSave: true
   minimap:
     plugins:
       pigments: true
