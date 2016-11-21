@@ -81,6 +81,9 @@ interval=1
 [time]
 interval=1
 
+[pia]
+interval=5 # TODO: INCREASE THIS!!!
+
 [i3menu]
 interval=once
 

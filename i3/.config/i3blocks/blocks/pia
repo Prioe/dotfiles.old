@@ -1,0 +1,17 @@
+#!/bin/bash
+
+separator=$($BLOCKS_DIR/separator)
+
+PROTECTED=$(curl -s https://www.privateinternetaccess.com | xmllint --html --xpath '//div[@class="topbar"]//li[@class="topbar__item"]/strong' - 2>/dev/null | grep -v "not protected")
+COUNTRY=$(curl -s http://country.io/names.json | jq -r ".$(curl -s https://ipinfo.io/country)")
+
+if [[ -n $PROTECTED ]]; then
+  echo "$separator<span foreground='#b5bd68'></span><span> $COUNTRY</span>"
+else
+  echo "$separator<span foreground='#cc6666'> $COUNTRY</span>"
+fi
+
+# mouse buttons
+case $BLOCK_BUTTON in
+    1) chromium https://ipleak.net/
+esac
