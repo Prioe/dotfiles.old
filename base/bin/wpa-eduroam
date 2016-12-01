@@ -3,7 +3,8 @@
 WPA_CONFIG="$HOME/.cat_installer/cat_installer.conf"
 WIFI_DEVICE="wlp9s0"
 
-echo
+# oh disgusting hack ...
+sudo echo
 echo "Brutally mudering all wpa_supplicant processes and releasing dhcpcd interfaces back into the ocean ..."
 
 sudo systemctl stop wpa_supplicant.service
