@@ -26,6 +26,7 @@
     warnOnLargeFileLimit: 5
   editor:
     fontSize: 12
+    preferredLineLength: 100
     showIndentGuide: true
     showInvisibles: true
     tabType: "soft"
@@ -38,6 +39,8 @@
     showErrorPanel: false
   "linter-eslint":
     fixOnSave: true
+  "linter-gcc":
+    gccLintOnTheFly: true
   minimap:
     plugins:
       pigments: true
