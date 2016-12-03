@@ -88,6 +88,8 @@ bindsym $alt+a exec --no-startup-id atom
 bindsym $alt+q exec --no-startup-id chromium --app=http://localhost:8080
 bindsym $alt+n exec --no-startup-id chromium --app=https://www.netflix.com
 bindsym $alt+y exec --no-startup-id chromium --app=https://www.youtube.de
+bindsym $alt+p exec --no-startup-id chromium --app=http://alice:32400/web/index.html#
+
 bindsym $alt+Tab exec --no-startup-id rofi -show run
 bindsym $alt+w kill
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
@@ -218,7 +220,7 @@ assign [class="discord"] $WS0
 assign [title="mutt_termite"] $WS4
 assign [instance="mail.google.com"] $WS4
 assign [instance="atom|localhost"] $WS5
-assign [instance="www.youtube.de|www.netflix.com|totem"] $WS6
+assign [instance="www.youtube.de|www.netflix.com|totem|alice__web_index.html"] $WS6
 assign [instance="calendar.google.com"] $WS7
 assign [instance="termite"] $WS1
 assign [instance="gitkraken"] $WS3
