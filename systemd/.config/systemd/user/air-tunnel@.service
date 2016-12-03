@@ -1,0 +1,11 @@
+[Unit]
+Description=AirVPN SSH tunnel to %i
+After=network.target
+
+[Service]
+Type=default
+WorkingDirectory=/etc/openvpn/air
+ExecStart=/etc/openvpn/air/AirVPN_%i_SSH-22.sh
+
+[Install]
+WantedBy=multi-user.target
