@@ -199,9 +199,9 @@ for_window [class="(?i)"] focus
 # Floating windows {{{
 
 # window rules
-for_window [title="GtkLP|Discord Updater|Android Emulator - *"] floating enable
+for_window [title="FileBot *|Copy|GtkLP|Discord Updater|Android Emulator - *"] floating enable
 for_window [class="opsu\!|obs|Wacom_utility.py|Grub-customizer|mpv|feh|Pavucontrol"] floating enable
-for_window [instance="nautilus|lastpass|cloudsn"] floating enable
+for_window [instance="ario|nautilus|lastpass|cloudsn"] floating enable
 for_window [title="gcal-calm_termite"] floating enable, resize grow up 170px, resize grow down 170px, resize grow left 280, resize grow right 280
 
 # modifier
