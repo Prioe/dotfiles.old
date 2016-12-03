@@ -1,3 +1,4 @@
 plugins: lastgenre fetchart
-library: /data/beets/library.db
+library: ~/music/library.db
 directory: ~/music
+incremental: true
