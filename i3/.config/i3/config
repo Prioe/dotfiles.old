@@ -14,7 +14,8 @@ exec feh --bg-scale $HOME/wallpapers/wallpaper.jpg
 exec compton --config $HOME/.config/compton.conf -b
 exec discord-canary
 exec unclutter
-#mpd-notification -m $HOME/Music &
+exec mpd
+exec ario
 
 ##
 ##Navigation
