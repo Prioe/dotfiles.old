@@ -15,7 +15,7 @@ exec compton --config $HOME/.config/compton.conf -b
 exec discord-canary
 exec unclutter
 exec mpd
-exec ario
+exec ario -m
 
 ##
 ##Navigation
