@@ -3,3 +3,4 @@
 # Except this file
 !.gitignore
 !mpd.conf
+!playlists/*
