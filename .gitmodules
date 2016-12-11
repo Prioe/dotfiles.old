@@ -4,3 +4,6 @@
 [submodule "tmux/.tmux/plugins/tpm"]
 	path = tmux/.tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
+[submodule "i3/.config/i3blocks/node"]
+	path = i3/.config/i3blocks/node
+	url = https://www.github.com/Prioe/node-i3blocks.git

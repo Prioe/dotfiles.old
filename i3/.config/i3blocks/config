@@ -81,8 +81,17 @@ interval=1
 [time]
 interval=1
 
-[pia]
+[vpn]
+command=$BLOCKS_DIR/node/block $BLOCK_NAME
 interval=5 # TODO: INCREASE THIS!!!
+
+[service]
+command=$BLOCKS_DIR/node/block $BLOCK_NAME deluged
+interval=25 # TODO: INCREASE THIS!!!
+
+[service]
+command=$BLOCKS_DIR/node/block $BLOCK_NAME transmission
+interval=25 # TODO: INCREASE THIS!!!
 
 [i3menu]
 interval=once
