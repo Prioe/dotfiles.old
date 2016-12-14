@@ -1,0 +1,9 @@
+#!/bin/bash
+# https://bbs.archlinux.org/viewtopic.php?id=76218
+# packup - creates list of all installed packages
+# reinstall with pacman -S $(cat pkglist)
+
+pacman -Qqet | grep -v "$(pacman -Qqg base)" | grep -v "$(pacman -Qqm)" > ~/dotfiles/pkglist
+
+# A list of local packages (includes AUR and locally installed)
+pacman -Qm > ~/dotfiles/pkglocallist
