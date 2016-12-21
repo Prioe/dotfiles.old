@@ -1,0 +1,74 @@
+#!/bin/bash
+# securepomf:
+# If run on a file, will encrypt the file and upload to pomf
+# If run on a special pomf URL, will download and decrypt
+
+set -e
+
+
+# Make sure we have GPG, curl, and a file to work with
+if [ -z "$(which gpg)" ]; then echo "Please install GPG"; exit; fi
+if [ -z "$(which curl)" ]; then echo "Please install curl"; exit; fi
+if [ -z "$1" ];
+then echo "securepomf: Run on a file to encrypt and upload it.
+           Run on a secure URL to download and decrypt it."; exit; fi
+
+
+
+input_URI="$1"
+in_file="$(basename "$input_URI" | cut -d'#' -f1)"
+up_url="https://pomf.cat/upload.php" # insert preferred clone here
+down_url="https://a.pomf.cat"
+
+
+
+function encrypt_upload() {
+  pass="$(< /dev/urandom tr -dc A-Z-a-z-0-9 | head -c22)"  # ~131bits entropy
+  out_name="$(< /dev/urandom tr -dc '[:lower:]' | head -c6)"
+  if [[ "${in_file##*.}" == "$in_file" ]]
+  then ext=""
+else ext=".${in_file##*.}"
+fi
+
+out_file="/tmp/$out_name$ext"
+
+echo "$pass" | gpg --output "$out_file" --batch --passphrase-fd 0 \
+--symmetric --cipher-algo AES256 "$input_URI"
+
+curl_output=$(curl --silent -sf -F files[]="@$out_file" "$up_url")
+
+n=0 # Try a few times
+
+
+while [[ $n -le 3 ]]; do
+    if [[ "${curl_output}" =~ '"success":true,' ]]; then
+        remote_file=$(echo "$curl_output" | grep -Eo '"url":"[A-Za-z0-9]+.*",' | sed 's/"url":"//;s/",//')
+        break
+    else
+        echo "Upload attempt $n failed..."
+        ((n = n +1))
+    fi
+done
+
+echo "$down_url/$remote_file#$pass"
+
+rm "$out_file"
+}
+
+
+
+function download_decrypt() {
+  encrypted_file="$(mktemp)"
+  curl --silent "$input_URI" --output "$encrypted_file"
+  pass="$(echo "$input_URI" | cut -d'#' -f2)"
+  echo "$pass" | gpg --output "$in_file" --batch --passphrase-fd 0 \
+  --decrypt "$encrypted_file" &>/dev/null
+  rm "$encrypted_file"
+}
+
+
+# Definitely less than ideal for main
+if [[ "$input_URI" == "$down_url"* ]]
+then download_decrypt
+else encrypt_upload
+fi
