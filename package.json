@@ -1,0 +1,17 @@
+{
+  "name": "dotfiles",
+  "version": "1.0.0",
+  "description": "My glutenfree dotfiles.",
+  "main": "index.js",
+  "repository": "git@github.com:Prioe/dotfiles.git",
+  "author": "Michael Albertz <michael@prio.one>",
+  "license": "MIT",
+  "devDependencies": {
+    "cz-conventional-changelog": "^1.2.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
