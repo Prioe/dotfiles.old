@@ -1,0 +1,9 @@
+-o ~/tobemoved/%(title)s.%(ext)s
+--embed-thumbnail
+--add-metadata
+--extract-audio
+--audio-quality 3
+--audio-format mp3
+--prefer-ffmpeg
+--no-call-home
+--ignore-errors
