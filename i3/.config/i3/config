@@ -10,12 +10,11 @@ font pango:Droid Sans 9
 ##Autostart
 ##
 
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec feh --bg-scale $HOME/wallpapers/wallpaper.jpg
 exec compton --config $HOME/.config/compton.conf -b
-exec discord-canary
 exec unclutter
-exec mpd
-exec ario -m
+
 
 ##
 ##Navigation
@@ -91,7 +90,7 @@ bindsym $alt+n exec --no-startup-id chromium --app=https://www.netflix.com
 bindsym $alt+y exec --no-startup-id chromium --app=https://www.youtube.de
 bindsym $alt+p exec --no-startup-id chromium --app=http://alice:32400/web/index.html#
 
-bindsym $alt+Tab exec --no-startup-id rofi -show run
+bindsym $alt+Tab exec --no-startup-id i3-dmenu-desktop --dmenu="/usr/bin/rofi -dmenu -i -p 'apps:' -width 25 -padding 19 -yoffset -180 -xoffset 500"
 bindsym $alt+w kill
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
@@ -135,7 +134,7 @@ gaps inner 4
 gaps outer 2
 
 #border
-new_window pixel 1
+new_window pixel 2
 
 # class                   border  backgr. text    indicator
 client.focused            #e47c36 #e47c36 #282828 #e47c36
@@ -143,36 +142,36 @@ client.focused_inactive   #b85334 #b85334 #232323
 client.unfocused          #b85334 #b85334 #797979 #b85334
 client.urgent             #c42d29 #c42d29 #eeeeee #c42d29
 
-bar {
-        i3bar_command i3bar -t
-        status_command i3blocks -c $HOME/.config/i3blocks/config
-        position top
-        height 20
-        workspace_buttons yes
-        strip_workspace_numbers yes
-        tray_padding 5
-        tray_output primary
-        font pango:MesloLGS Nerd Font 9
-        colors {
-             # <bar>
-             separator           $brightorange
-             background          $darkblack
-             statusline          $white
-
-             # <workclass>       <border>      <bg>     <text>
-             focused_workspace   $darkblack   $brightslate $brightwhite
-             inactive_workspace  $transparent $black       $white
-             active_workspace    $darkblack   $darkwhite   $brightwhite
-             urgent_workspace    $darkblack   $darkred     $brightwhite
-             binding_mode        $darkblack   $darkmagenta $brightwhite
-        }
-}
+# bar {
+#         i3bar_command i3bar -t
+#         status_command i3blocks -c $HOME/.config/i3blocks/config
+#         position top
+#         height 20
+#         workspace_buttons yes
+#         strip_workspace_numbers yes
+#         tray_padding 5
+#         tray_output primary
+#         font pango:MesloLGS Nerd Font 9
+#         colors {
+#              # <bar>
+#              separator           $brightorange
+#              background          $darkblack
+#              statusline          $white
+#
+#              # <workclass>       <border>      <bg>     <text>
+#              focused_workspace   $darkblack   $brightslate $brightwhite
+#              inactive_workspace  $transparent $black       $white
+#              active_workspace    $darkblack   $darkwhite   $brightwhite
+#              urgent_workspace    $darkblack   $darkred     $brightwhite
+#              binding_mode        $darkblack   $darkmagenta $brightwhite
+#         }
+# }
 
 
 
 
 # names / variables
-set $WL0 0<span font='10' weight='light' underline='low'>3</span>
+set $WL0 0:3
 set $WS1 1:
 set $WS2 2:
 set $WS3 3:
@@ -187,7 +186,6 @@ set $WS0 10:
 
 # Window title format {{{
 
-for_window [class="(?i)"] title_format "<span weight='ultraheavy' foreground='$darkblack'>   </span><span weight='bold' >%title</span>"
 
 # }}}
 
@@ -206,6 +204,7 @@ for_window [title="FileBot *|Copy|GtkLP|Discord Updater|Android Emulator - *"] f
 for_window [class="opsu\!|obs|Wacom_utility.py|Grub-customizer|mpv|feh|Pavucontrol"] floating enable
 for_window [instance="ario|nautilus|lastpass|cloudsn"] floating enable
 for_window [title="gcal-calm_termite"] floating enable, resize grow up 170px, resize grow down 170px, resize grow left 280, resize grow right 280
+for_window [class="plank"] floating enable,move absolute center
 
 # modifier
 floating_modifier $alt
@@ -218,16 +217,17 @@ floating_maximum_size 1340 x 742
 # Move windows to workspaces
 
 assign [class="discord"] $WS0
-assign [title="mutt_termite"] $WS4
-assign [instance="mail.google.com"] $WS4
-assign [instance="atom|localhost"] $WS5
-assign [instance="www.youtube.de|www.netflix.com|totem|alice__web_index.html"] $WS6
-assign [instance="calendar.google.com"] $WS7
 assign [instance="termite"] $WS1
-assign [instance="gitkraken"] $WS3
 assign [window_role="^browser$"] $WS2
+assign [instance="gitkraken"] $WS3
+assign [title="mutt_termite"] $WS4
+assign [instance="franz|mail.google.com"] $WS4
+assign [instance="atom|localhost"] $WS5
+assign [instance="google play music desktop player|www.youtube.de|www.netflix.com|totem|alice__web_index.html"] $WS6
 assign [title="ncmpcpp_termite"] $WS6
-assign [class="^*$"] $WS9
+assign [instance="calendar.google.com|gnome-calendar"] $WS7
+assign [instance="Steam"] $WS8
+assign [class="^$"] $WS9
 
 
 
