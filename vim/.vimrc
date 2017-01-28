@@ -14,10 +14,9 @@ call vundle#begin()
     " " The following are examples of different formats supported.
     " " Keep Plugin commands between vundle#begin/end.
     " " plugin on GitHub repo
-    Plugin 'Valloric/YouCompleteMe'
+    Plugin 'vim-syntastic/syntastic'
     Plugin 'jiangmiao/auto-pairs'
     Plugin 'vim-airline/vim-airline'
-    Plugin 'scrooloose/syntastic'
     Plugin 'airblade/vim-gitgutter'
     Plugin 'mhinz/vim-signify'
     Plugin 'ap/vim-css-color'
@@ -25,7 +24,16 @@ call vundle#begin()
     Plugin 'chriskempson/vim-tomorrow-theme'
     Plugin 'vim-airline/vim-airline-themes'
     Plugin 'scrooloose/nerdtree'
-    Plugin 'kien/ctrlp.vim'
+    Plugin 'jistr/vim-nerdtree-tabs'
+    Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+    Plugin 'ryanoasis/vim-devicons'
+    Plugin 'Xuyuanp/nerdtree-git-plugin'
+    Plugin 'ctrlpvim/ctrlp.vim'
+    Plugin 'pangloss/vim-javascript'
+    Plugin 'jelera/vim-javascript-syntax'
+    Plugin 'PotatoesMaster/i3-vim-syntax'
+    Plugin 'othree/javascript-libraries-syntax.vim'
+    Plugin 'mattn/emmet-vim'
     " Plugin 'edkolev/tmuxline.vim'
     " All of your Plugins must be added before the following line
     call vundle#end()            " required
@@ -49,6 +57,7 @@ set laststatus=2
 " and use powerline symbols for airline
 let g:airline_powerline_fonts = 1
 colorscheme Tomorrow-Night-Eighties
+let g:airline_theme = 'base16_eighties'
 syntax on
 set cursorline
 " Sane splitting behavior.
@@ -70,8 +79,8 @@ set expandtab
 " Indenting is 2 spaces. No more. No less. Unless someone else wrote the
 " yacc file. Then all bets are off.
 set shiftwidth=2
+set tabstop=2
 set softtabstop=2
-" turns it on
 set autoindent
 " Does the right thing (mostly) in programs.
 set smartindent
@@ -85,6 +94,10 @@ set shortmess+=c
 " Keep selection when indenting/outdenting.
 vnoremap > >gv
 vnoremap < <gv
+" Invisibles
+set showbreak=↪\ 
+set listchars=tab:→\ ,eol:↲,trail:·,extends:⟩,precedes:⟨
+set list
 " Visual lines, not file lines. Usually not an issue.
 noremap <Up> gk
 noremap <Down> gj
@@ -95,3 +108,35 @@ set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 " Assist with entering the date.
 iabbrev ddate <C-r>=strftime("%D")<CR>
+
+" highlight NonText ctermbg=none
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+
+" Various opinionated keybind, wheyy!
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+nnoremap <leader>ei :tabedit ~/dotfiles/i3/.config/i3/config<cr>
+nnoremap <leader>ev :tabedit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+vnoremap // y/<C-R>"<CR>"
+
+let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+let g:syntastic_javascript_checkers = ['eslint']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:ctrlp_show_hidden = 1
+
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+
+let g:user_emmet_leader_key='<NUL>'
+
