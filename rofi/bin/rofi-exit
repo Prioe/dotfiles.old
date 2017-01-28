@@ -1,21 +1,35 @@
 #!/bin/bash
 # exit session
 
-CMD=$(echo -e "exit i3\nkill user $USER\nkill Xorg\nlock" | rofi -width 350 -dmenu -p exit:)
+LOCK="Lock"
+LOGOUT="Logout $USER"
+SUSPEND="Suspend"
+SLEEP="Hybrid Sleep"
+HIBERNATE="Hibernate"
+REBOOT="Reboot"
+SHUTDOWN="Shutdown"
+
+CMD=$(echo -e "$LOCK\n$LOGOUT\n$SUSPEND\n$SLEEP\n$HIBERNATE\n$REBOOT\n$SHUTDOWN" | rofi -width 350 -dmenu -p "Session: ")
 case $CMD in
-    'exit i3')
-        i3-msg exit
-        ;;
-    'kill user $USER')
-        loginctl kill-user $USER
-        ;;
-    'kill Xorg')
-        WM_PID=$(xprop -id $(xprop -root _NET_SUPPORTING_WM_CHECK \
-            | awk -F'#' '{ print $2 }') _NET_WM_PID \
-            | awk -F' = ' '{ print $2 }')
-        kill -15 $WM_PID
-        ;;
-    'lock')
-        ilockit
-        ;;
+  $LOCK)
+    dm-tool lock
+    ;;
+  $LOGOUT)
+    i3-msg exit
+    ;;
+  $SUSPEND)
+    systemctl suspend
+    ;;
+  $SLEEP)
+    systemctl hybrid-sleep
+    ;;
+  $HIBERNATE)
+    systemctl hibernate
+    ;;
+  $REBOOT)
+    systemctl reboot
+    ;;
+  $SHUTDOWN)
+    shutdown now
+    ;;
 esac

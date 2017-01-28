@@ -1,97 +1,141 @@
-##
+#
+#
 ## Variables
 ##
 ## Mod-keys ##
-set $alt Mod1
-
-font pango:Droid Sans 9
+set $mod Mod4
 
 ##
 ##Autostart
 ##
 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec feh --bg-scale $HOME/wallpapers/wallpaper.jpg
-exec compton --config $HOME/.config/compton.conf -b
-exec unclutter
+font "pango:Roboto Condensed Light 18"
 
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id feh --bg-scale $HOME/wallpapers/wallpaper.jpg
+exec --no-startup-id compton --config $HOME/.config/compton.conf -b
+exec --no-startup-id unclutter
+exec --no-startup-id dunst
 
 ##
 ##Navigation
 ##
 
 # change focus
-bindsym $alt+h focus left
-bindsym $alt+j focus down
-bindsym $alt+k focus up
-bindsym $alt+l focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # move focused window
-bindsym $alt+Shift+h move left
-bindsym $alt+Shift+j move down
-bindsym $alt+Shift+k move up
-bindsym $alt+Shift+l move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 #split window
-bindsym $alt+u split v
-bindsym $alt+i split h
-bindsym $alt+o fullscreen toggle
+bindsym $mod+u split v
+bindsym $mod+i split h
+bindsym $mod+o fullscreen toggle
 
-#Use Mouse+$alt to drag floating windows to their wanted position
-floating_modifier $alt
+#Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
 
 # toggle tiling / floating
-bindsym $alt+f floating toggle
+bindsym $mod+f floating toggle
 
 # change focus between tiling / floating windows
-bindsym $alt+d focus mode_toggle
+bindsym $mod+d focus mode_toggle
 
-bindsym $alt+BackSpace reload
-bindsym $alt+Shift+BackSpace exec "i3-nagbar -t warning -m 'Logout?' -b 'Yes' 'i3-msg No'"
+# switch to workspace
+bindsym $mod+KP_1 workspace $WS1
+bindsym $mod+KP_2 workspace $WS2
+bindsym $mod+KP_3 workspace $WS3
+bindsym $mod+KP_4 workspace $WS4
+bindsym $mod+KP_5 workspace $WS5
+bindsym $mod+KP_6 workspace $WS6
+bindsym $mod+KP_7 workspace $WS7
+bindsym $mod+KP_8 workspace $WS8
+bindsym $mod+KP_9 workspace $WS9
+bindsym $mod+KP_0 workspace $WS0
+bindsym $mod+1    workspace $WS1
+bindsym $mod+2    workspace $WS2
+bindsym $mod+3    workspace $WS3
+bindsym $mod+4    workspace $WS4
+bindsym $mod+5    workspace $WS5
+bindsym $mod+6    workspace $WS6
+bindsym $mod+7    workspace $WS7
+bindsym $mod+8    workspace $WS8
+bindsym $mod+9    workspace $WS9
+bindsym $mod+0    workspace $WS0
+
+# move focused container to workspace
+bindsym $mod+Shift+KP_1 move container to workspace $WS1
+bindsym $mod+Shift+KP_2 move container to workspace $WS2
+bindsym $mod+Shift+KP_3 move container to workspace $WS3
+bindsym $mod+Shift+KP_4 move container to workspace $WS4
+bindsym $mod+Shift+KP_5 move container to workspace $WS5
+bindsym $mod+Shift+KP_6 move container to workspace $WS6
+bindsym $mod+Shift+KP_7 move container to workspace $WS7
+bindsym $mod+Shift+KP_8 move container to workspace $WS8
+bindsym $mod+Shift+KP_9 move container to workspace $WS9
+bindsym $mod+Shift+KP_0 move container to workspace $WS0
+bindsym $mod+Shift+1    move container to workspace $WS1
+bindsym $mod+Shift+2    move container to workspace $WS2
+bindsym $mod+Shift+3    move container to workspace $WS3
+bindsym $mod+Shift+4    move container to workspace $WS4
+bindsym $mod+Shift+5    move container to workspace $WS5
+bindsym $mod+Shift+6    move container to workspace $WS6
+bindsym $mod+Shift+7    move container to workspace $WS7
+bindsym $mod+Shift+8    move container to workspace $WS8
+bindsym $mod+Shift+9    move container to workspace $WS9
+bindsym $mod+Shift+0    move container to workspace $WS0
+
 
 # resize window (you can also use the mouse for that)
-bindsym $alt+r mode "resize"
-mode "resize" {
+set $mode_resize ""
+set $mode_default "default"
+
+bindsym $mod+r mode $mode_resize
+mode $mode_resize {
         bindsym l resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym h resize grow width 10 px or 10 ppt
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+        bindsym Return mode $mode_default
+        bindsym Escape mode $mode_default
 }
 
 # move workspaces between monitors
-bindsym $alt+Mod4+h move workspace to output left
-bindsym $alt+Mod4+l move workspace to output right
+bindsym $mod+Mod1+h move workspace to output left
+bindsym $mod+Mod1+l move workspace to output right
 
-# bind workspace switching
-bindsym $alt+grave workspace $WL0
-bindsym $alt+1 workspace $WS1
-bindsym $alt+2 workspace $WS2
-bindsym $alt+3 workspace $WS3
-bindsym $alt+4 workspace $WS4
-bindsym $alt+5 workspace $WS5
-bindsym $alt+6 workspace $WS6
-bindsym $alt+7 workspace $WS7
-bindsym $alt+8 workspace $WS8
-bindsym $alt+9 workspace $WS9
-bindsym $alt+0 workspace $WS0
+bindsym $mod+Shift+c exec --no-startup-id $HOME/.config/i3/scripts/reload.sh
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+## Chrome Desktop Entries
+set $crx_youtube  adnlfjpnmidfimlkaohpidplnoimahfh
+set $crx_plex     mfikkejkfhlhpnhfbfbcopeaobpekbml
+set $crx_valimail eiffeoeggmlabkkfejakmbdfkchiobda
+set $crx_gmail    kmhopmchchfpfdcdjodmpfaaphdclmlj
+set $crx_twitch   lcalihbgockdkkhcmpoadihgcdjhahjn
+set $crx_netflix  eppojlglocelodeimnohnlnionkobfln
 
 
 ##
 ## Programs
 ##
-bindsym Mod4+l exec --no-startup-id lock -f Roboto-Light -- scrot -z
-bindsym $alt+t exec --no-startup-id termite --exec tmux
-bindsym $alt+c exec --no-startup-id chromium
-bindsym $alt+a exec --no-startup-id atom
-bindsym $alt+q exec --no-startup-id chromium --app=http://localhost:8080
-bindsym $alt+n exec --no-startup-id chromium --app=https://www.netflix.com
-bindsym $alt+y exec --no-startup-id chromium --app=https://www.youtube.de
-bindsym $alt+p exec --no-startup-id chromium --app=http://alice:32400/web/index.html#
+# bindsym Mod4+l exec --no-startup-id lock -f Roboto-Light -- scrot -z
+bindsym $mod+t exec --no-startup-id termite --exec tmux --role terminal
+bindsym $mod+c exec --no-startup-id chromium
+bindsym $mod+a exec --no-startup-id termite --exec vim --role editor --title "$(vim-title)" --directory $HOME/code
+bindsym $mod+Shift+a exec --no-startup-id termite --exec vim --role editor --title "$(vim-title)" --directory "$(zenity --file-selection --directory)"
+bindsym $mod+m exec --no-startup-id chromium --profile-directory=Default --app-id=$crx_gmail
 
-bindsym $alt+Tab exec --no-startup-id i3-dmenu-desktop --dmenu="/usr/bin/rofi -dmenu -i -p 'apps:' -width 25 -padding 19 -yoffset -180 -xoffset 500"
-bindsym $alt+w kill
+bindsym $mod+Tab exec --no-startup-id i3-dmenu-desktop --dmenu="/usr/bin/rofi -dmenu -i -p 'apps:'"
+bindsym $mod+Escape exec --no-startup-id $HOME/bin/rofi-exit
+bindsym $mod+w kill
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
@@ -99,35 +143,35 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 ##Looks
 ##
 
-# colors from X
-set $darkred     #cc6666
-set $red         #ff3334
-set $darkgreen   #b5bd68
-set $green       #9ec400
-set $darkyellow  #de935f
-set $yellow      #f0c674
-set $darkblue    #81a2be
-set $blue        #81a2be
-set $darkmagenta #b294bb
-set $magenta     #b777e0
-set $darkcyan    #8abeb7
-set $cyan        #54ced6
-set $darkwhite   #969896
-set $white       #c5c8c6
+# TomorrowNight
+set $background            #1d1f21
+set $current_line          #282a2e
+set $selection      	#373b41
+set $foreground      	#c5c8c6
+set $comment	     	#969896
+set $red		     	#cc6666
+set $orange	     	#de935f
+set $yellow        	#f0c674
+set $green	        	#b5bd68
+set $aqua	        	#8abeb7
+set $blue	        	#81a2be
+set $purple        	#b294bb
 
-# set custom black colors
-set $black       #282a2e
-set $darkblack   #1d1f21
-set $transparent #00000099
-set $brightwhite #f9f9f9
+# TomorrowNight Bright
+set $bright_background     #000000 
+set $bright_current_line   #2a2a2a 
+set $bright_selection      #424242 
+set $bright_foreground     #eaeaea 
+set $bright_comment        #969896 
+set $bright_red            #d54e53 
+set $bright_orange         #e78c45 
+set $bright_yellow         #e7c547 
+set $bright_green          #b9ca4a 
+set $bright_aqua           #70c0b1 
+set $bright_blue           #7aa6da 
+set $bright_purple         #c397d8 
 
-# add special colors
-set $brightslate #526b77
-set $slate #455a64
-set $darkslate #37474f
-set $brightorange #e47c36
-set $orange #b85334
-set $darkorange #c42d29
+set $ignored               #000000
 
 #gaps
 gaps inner 4
@@ -136,99 +180,56 @@ gaps outer 2
 #border
 new_window pixel 2
 
-# class                   border  backgr. text    indicator
-client.focused            #e47c36 #e47c36 #282828 #e47c36
-client.focused_inactive   #b85334 #b85334 #232323
-client.unfocused          #b85334 #b85334 #797979 #b85334
-client.urgent             #c42d29 #c42d29 #eeeeee #c42d29
+# <colorclass>          <border>       <background>   <text>      <indicator>    <child_border>
+client.focused          $bright_orange $orange        $background $orange        $orange       
+client.focused_inactive $bright_orange $orange        $background $orange        $orange       
+client.unfocused        $selection     $current_line    $foreground $current_line    $current_line
+client.urgent           $bright_red           $red           $background $red           $red          
+client.placeholder      $ignored       $ignored       $background $ignored       $ignored      
 
-# bar {
-#         i3bar_command i3bar -t
-#         status_command i3blocks -c $HOME/.config/i3blocks/config
-#         position top
-#         height 20
-#         workspace_buttons yes
-#         strip_workspace_numbers yes
-#         tray_padding 5
-#         tray_output primary
-#         font pango:MesloLGS Nerd Font 9
-#         colors {
-#              # <bar>
-#              separator           $brightorange
-#              background          $darkblack
-#              statusline          $white
-#
-#              # <workclass>       <border>      <bg>     <text>
-#              focused_workspace   $darkblack   $brightslate $brightwhite
-#              inactive_workspace  $transparent $black       $white
-#              active_workspace    $darkblack   $darkwhite   $brightwhite
-#              urgent_workspace    $darkblack   $darkred     $brightwhite
-#              binding_mode        $darkblack   $darkmagenta $brightwhite
-#         }
-# }
-
-
-
+client.background $background
 
 # names / variables
-set $WL0 0:3
-set $WS1 1:
-set $WS2 2:
-set $WS3 3:
-set $WS4 4:
-set $WS5 5:
-set $WS6 6:
-set $WS7 7:
-set $WS8 8:
-set $WS9 9:
-set $WS0 10:
-
-
-# Window title format {{{
-
-
-# }}}
-
-# Focus windows {{{
+set $WL0 10
+set $WS1 1
+set $WS2 2
+set $WS3 3
+set $WS4 4
+set $WS5 5
+set $WS6 6
+set $WS7 7
+set $WS8 8
+set $WS9 9
+set $WS0 0
 
 no_focus [window_role="pop-up"]
 focus_on_window_activation focus
 for_window [class="(?i)"] focus
 
-# }}}
-
-# Floating windows {{{
-
 # window rules
 for_window [title="FileBot *|Copy|GtkLP|Discord Updater|Android Emulator - *"] floating enable
 for_window [class="opsu\!|obs|Wacom_utility.py|Grub-customizer|mpv|feh|Pavucontrol"] floating enable
-for_window [instance="ario|nautilus|lastpass|cloudsn"] floating enable
-for_window [title="gcal-calm_termite"] floating enable, resize grow up 170px, resize grow down 170px, resize grow left 280, resize grow right 280
-for_window [class="plank"] floating enable,move absolute center
+for_window [instance="gnome-tweak-tool|gnome-control-center|ario|nautilus|lastpass|cloudsn"] floating enable
 
-# modifier
-floating_modifier $alt
+for_window [workspace=$WS9] layout tabbed
 
 # window sizes
 floating_minimum_size -1 x -1
-floating_maximum_size 1340 x 742
-#floating_maximum_size -1 x -1
+# floating_maximum_size 1340 x 742
+floating_maximum_size -1 x -1
 
 # Move windows to workspaces
 
-assign [class="discord"] $WS0
-assign [instance="termite"] $WS1
+assign [class="discord"] $WS4
+assign [window_role="terminal"] $WS1
 assign [window_role="^browser$"] $WS2
-assign [instance="gitkraken"] $WS3
-assign [title="mutt_termite"] $WS4
-assign [instance="franz|mail.google.com"] $WS4
+assign [instance="evolution|$crx_gmail|$crx_valimail"] $WS6
 assign [instance="atom|localhost"] $WS5
-assign [instance="google play music desktop player|www.youtube.de|www.netflix.com|totem|alice__web_index.html"] $WS6
-assign [title="ncmpcpp_termite"] $WS6
+assign [window_role="editor"] $WS5
+assign [instance="google play music desktop player|$crx_youtube|$crx_plex|$crx_twitch|$crx_netflix"] $WS3
 assign [instance="calendar.google.com|gnome-calendar"] $WS7
 assign [instance="Steam"] $WS8
-assign [class="^$"] $WS9
+assign [instance="gnome-control-center|gnome-tweak-tool"] $WS0
+assign [instance="^.*"] $WS9
 
-
-
-exec i3-msg workspace 1 "<span font='10' weight='light' underline='low'>3</span>" #fix workspace 1 name not applied at login (race condition?)
+# vim:filetype=i3
