@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+full_title=`vim --version | grep "Vi IMproved"`
+regex="(VIM - Vi IMproved .*) \(.*\)"
+
+if [[ $full_title =~ $regex  ]]; then
+  echo "${BASH_REMATCH[1]}"
+else
+  echo "VIM - Vi IMproved"
+fi

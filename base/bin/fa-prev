@@ -1,2 +1,2 @@
 echo -e "\u$1"
-echo -e "\u$1" | xsel -i -b
+printf "\u$1" | xsel -i -b

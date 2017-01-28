@@ -3,7 +3,7 @@
 if [[ $(id -u) -ne 0 ]] ; then echo "You must be root to use this magic!" ; exit 1 ; fi
 
 WPA_CONFIG="$HOME/.cat_installer/cat_installer.conf"
-WIFI_DEVICE="wlp9s0"
+WIFI_DEVICE="wlp58s0"
 
 echo "Brutally mudering all wpa_supplicant processes and releasing dhcpcd interfaces back into the ocean"
 

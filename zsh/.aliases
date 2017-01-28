@@ -1,3 +1,4 @@
 alias log-installed-packages="pacman -Qe | grep --color=always -v (.*) | cut -d/ -f2- | awk '{print \$1}' | tee $HOME/packages-$(hostname).txt"
 alias avpn-fix-resolvconf="chattr -i /etc/resolv.conf && sudo resolvconf -u"
 alias scrot-pomf="scrot --exec 'pomf \$f && rm \$f'"
+alias adb-restart="adb kill-server; sudo adb start-server"

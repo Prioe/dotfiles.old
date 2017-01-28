@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "bower": "^1.8.0",
+    "commitizen": "^2.9.5",
+    "cordova": "^6.4.0",
+    "gulp": "^3.9.1",
+    "ionic": "^2.2.1",
+    "webpack": "^1.14.0"
+  }
+}
