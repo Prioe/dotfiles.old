@@ -9,10 +9,10 @@ HIBERNATE="Hibernate"
 REBOOT="Reboot"
 SHUTDOWN="Shutdown"
 
-CMD=$(echo -e "$LOCK\n$LOGOUT\n$SUSPEND\n$SLEEP\n$HIBERNATE\n$REBOOT\n$SHUTDOWN" | rofi -width 350 -dmenu -p "Session: ")
+CMD=$(echo -e "$LOCK\n$LOGOUT\n$SUSPEND\n$SLEEP\n$HIBERNATE\n$REBOOT\n$SHUTDOWN" | rofi -width 350 -dmenu -i -p "Session: ")
 case $CMD in
   $LOCK)
-    dm-tool lock
+    sleep 0.5 && i3lock-fancy -f Roboto-Light -- scrot -z
     ;;
   $LOGOUT)
     i3-msg exit

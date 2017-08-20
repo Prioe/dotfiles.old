@@ -1,0 +1,19 @@
+#!/bin/bash
+# logout dialog
+
+lpass sync
+regex=".*\/(.*) \[.*\] \[username: (.*)\]"
+regex_cmd="(.*): .*"
+
+cmd=$(lpass ls -l | while read line
+do
+  if [[ $line =~ $regex ]]
+  then
+    echo "${BASH_REMATCH[1]}: ${BASH_REMATCH[2]}"
+  fi
+done | rofi -dmenu -i -p lastpass:)
+
+if [[ $cmd =~ $regex_cmd ]]
+then
+  lpass show "${BASH_REMATCH[1]}" -c -p
+fi
