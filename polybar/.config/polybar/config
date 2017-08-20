@@ -48,8 +48,8 @@ foreground_dim = ${colors.color8}
 alert = ${colors.color1}
 ok = ${colors.color2}
 
-cpu = ${colors.transparent}
-memory = ${colors.transparent}
+cpu = ${colors.color5}
+memory = ${colors.color5}
 temperature = ${colors.color5}
 date = ${colors.transparent}
 volume = ${colors.color6}
@@ -95,6 +95,7 @@ format-full-padding = ${self.format-padding}
 # margin-bottom = 10
 
 [bar/main]
+monitor = ${env:MONITOR:eDP1}
 bottom = false
 width = 100%
 height = 40
@@ -115,10 +116,12 @@ padding-right = 2
 module-margin-left = 0
 module-margin-right = 1
 
-font-0 = Roboto Condensed Light:size=8;-6
-font-1 = Material Design Icons:size=11;-4
+# font-0 = Roboto Condensed Light:size=8;0
+font-0 = Meslo LG S:size=8;0
+font-1 = Material Design Icons:size=11;3
 font-2 = MesloLGS Nerd Font:size=11;5
-font-3 = MesloLGS Nerd Font:size=11;0
+font-3 = MesloLGS Nerd Font:size=11;3
+font-4 = Roboto Condensed:size=11;3
 
 modules-left = menu s i3 s xwindow
 modules-center = date
@@ -127,6 +130,8 @@ tray-position = right
 tray-padding = 2
 tray-max-size = 40
 tray-background = ${theme.background}
+
+dpi = 192
 
 [module/xwindow]
 type = internal/xwindow
@@ -188,6 +193,7 @@ interval = 2
 format-underline = ${theme.cpu}
 label = %percentage%
 
+ramp-coreload-font = 5
 ramp-coreload-0 = ▁
 ramp-coreload-1 = ▂
 ramp-coreload-2 = ▃
@@ -211,6 +217,8 @@ bar-used-foreground-0 = ${theme.memory-0}
 bar-used-foreground-1 = ${theme.memory-1}
 bar-used-foreground-2 = ${theme.memory-2}
 bar-used-foreground-3 = ${theme.memory-3}
+bar-used-fill-font = 5
+bar-used-empty-font = 5
 bar-used-fill = |
 bar-used-empty = |
 bar-used-empty-foreground = #444444
@@ -222,9 +230,8 @@ type = internal/network
 interface = wlp58s0
 interval = 1
 
-
 format-connected-prefix = " "
-label-connected = "%{A:gnome-control-center network &:} %signal% [  %downspeed% ] [  %upspeed% ]%{A}"
+label-connected = "%{A:gnome-control-center network &:}%signal% [%downspeed%|%upspeed%]%{A}"
 
 format-disconnected-prefix = " "
 label-disconnected = "%{A:gnome-control-center network &:}Offline%{A}"
@@ -233,11 +240,11 @@ label-disconnected = "%{A:gnome-control-center network &:}Offline%{A}"
 inherit = module/theme
 type = internal/network
 
-interface = eno1
-interval = 3.0
+interface = enp57s0u1u3u2
+interval = 1
 
 format-connected-prefix = " "
-label-connected = "%{A:gnome-control-center network &:}[  %downspeed% ] [  %upspeed% ]%{A}"
+label-connected = "%{A:gnome-control-center network &:}[%downspeed%|%upspeed%]%{A}"
 
 format-disconnected-prefix = " "
 label-disconnected = "%{A:gnome-control-center network &:}Offline%{A}"
@@ -246,16 +253,16 @@ label-disconnected = "%{A:gnome-control-center network &:}Offline%{A}"
 inherit = module/theme
 type = internal/volume
 
-format-volume = <ramp-volume> <label-volume>
+format-volume = <ramp-volume><label-volume>
 label-volume = %percentage%
 label-muted = " Mute"
 
 format-volume-underline = ${theme.volume}
 format-muted-underline = ${theme.volume_mute}
 
-ramp-volume-0 = " "
-ramp-volume-1 = " "
-ramp-volume-2 = " "
+ramp-volume-0 = ""
+ramp-volume-1 = ""
+ramp-volume-2 = ""
 
 [module/battery]
 inherit = module/theme
@@ -271,11 +278,11 @@ adapter = AC
 time-format = "%-H:%M"
 
 label-charging = 
-format-charging = <animation-charging> <label-charging>
+format-charging = <animation-charging><label-charging>
 format-charging-underline = ${theme.battery_charge}
 
 label-discharging = "%time%"
-format-discharging = <ramp-capacity> <label-discharging>
+format-discharging = <ramp-capacity><label-discharging>
 format-discharging-underline = ${theme.battery_discharge}
 
 label-full = 
