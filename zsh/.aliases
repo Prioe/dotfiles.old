@@ -2,3 +2,4 @@ alias log-installed-packages="pacman -Qe | grep --color=always -v (.*) | cut -d/
 alias avpn-fix-resolvconf="chattr -i /etc/resolv.conf && sudo resolvconf -u"
 alias scrot-pomf="scrot --exec 'pomf \$f && rm \$f'"
 alias adb-restart="adb kill-server; sudo adb start-server"
+alias univim="cd $HOME/code/uni/preview && vim -S Session.vim"
