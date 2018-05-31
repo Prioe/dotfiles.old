@@ -13,7 +13,7 @@
 !argb
 #define t_dark_background_transparent argb:d01d1f21
 #define t_background_transparent argb:801d1f21
-#define t_light_background_transparent argb:4001d1f21
+#define t_light_background_transparent argb:401d1f21
 #define t_transparent argb:00000000
 
 !TomorrowNight
@@ -43,7 +43,6 @@
 #define t_bright_aqua           #70c0b1 
 #define t_bright_blue           #7aa6da 
 #define t_bright_purple         #c397d8 
-
 
 *.foreground:   t_foreground
 *.background:   t_background
@@ -82,13 +81,15 @@
 *.color15:      t_current_line
 
 rofi.font:             MesloLGS Nerd Font 10
-rofi.dpi:              196
+! for some reason since 1.3.1 fullscreen results in a white screen,
+! manually setting the width works thoug
+rofi.fake-transparency: true
+rofi.fake-background: screenshot
 rofi.fullscreen:       true
 rofi.terminal:         i3-sensible-terminal
 rofi.separator-style:  solid
 rofi.hide-scrollbar:   true
 rofi.scrollbar-width:  6
-rofi.padding:          600
 rofi.eh:               1
 rofi.bw:               0
 rofi.line-margin:      2
@@ -96,11 +97,28 @@ rofi.lines:            15
 rofi.threads:          4
 rofi.matching:         fuzzy
 !custom keybinding
-rofi.kb-delete-entry:  Delete,Alt+BackSpace
+!rofi.kb-delete-entry:  Delete,Alt+BackSpace
 
 ! Rofi colors
 rofi.color-enabled:    true
 rofi.color-window:     t_dark_background_transparent, t_bright_orange, t_orange
 rofi.color-normal:     t_light_background_transparent, t_foreground, t_background_transparent, t_orange, t_background
 rofi.color-active:     t_light_background_transparent, t_green, t_background_transparent, t_green, t_background
-rofi.color-urgent:     t_light_background_transparent, t_red, t_background_transparent, t_red, t_background
+
+
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+!! hidpi
+! Xft.dpi:               192
+! rofi.dpi:              192
+! rofi.padding:          600
+
+!! lowdpi
+Xft.dpi:                 96
+rofi.dpi:                96
+rofi.padding:            300

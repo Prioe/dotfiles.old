@@ -1,5 +1,5 @@
 [global]
-    font = Roboto Condensed 18
+    font = Roboto Condensed 12
  
     # allow a small subset of html markup:
     # <b>bold</b>
@@ -9,7 +9,7 @@
     #
     # for a complete reference see http://developer.gnome.org/pango/stable/PangoMarkupFormat.html
     # If markup is not allowed, those tags will be stripped out of the message.
-    allow_markup = yes
+    markup = yes
  
     # The format of the message. Possible variables are:
     #   %a  appname
@@ -59,7 +59,7 @@
     # right side of the screen.  Y is measured from the top and down respectevly.
     # The width can be negative. In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "540x0-7+46"
+    geometry = "x0-0+25"
     # The transparency of the window. range: [0; 100]
     # This option will only work if a compositing windowmanager is present (e.g. xcompmgr, compiz, etc..)
     transparency = 20
@@ -101,7 +101,7 @@
     padding = 16
  
     # horizontal padding
-    horizontal_padding = 2
+    horizontal_padding = 1200
  
     # Define a color for the separator.
     # possible values are:
@@ -123,7 +123,7 @@
     browser = /usr/bin/chromium -new-tab
  
 [frame]
-    width = 4
+    width = 0
     color = "#de935f"
 [shortcuts]
     # shortcuts are specified as [modifier+][modifier+]...key

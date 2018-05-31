@@ -9,7 +9,7 @@ current_system=$(hostname)
 desktop=alice
 laptop=asdf
 
-X_TARGET="gnome-session --session=i3-gnome"
+X_TARGET="gnome-session --session=i3-gnome --debug"
 
 # merge in defaults and keymaps
 
@@ -30,9 +30,8 @@ if [ -f "$usermodmap" ]; then
 fi
 
 setxkbmap de
-autorandr --change
 
-if [ "$current_system" == "$desktop"] ; then
+if [ "$current_system" == "$desktop" ]; then
   xinput --set-prop 13 'libinput Accel Speed' -0.5
   xset m 0 0
 fi
